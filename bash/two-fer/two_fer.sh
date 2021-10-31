@@ -1,13 +1,11 @@
 #!/usr/bin/env bash
-
-# My main inspiration for good bash coding style:
-# https://github.com/progrium/bashstyle
+# My bash coding style:
+# https://github.com/meleu/exercism/tree/master/bash
 #
-# - All code goes in a function. Even if it's one function.
-# - Always use `local` when setting variables.
-# - Assign arguments to a variable with a meaningful name.
+# New concept:
 # - `${var:-defaulValue}` means: 
 #   "give me the value of ${var}, but if it's empty, give me 'defaultValue'"
+#   https://mywiki.wooledge.org/BashGuide/Parameters#Parameter_Expansion
 
 main() {
   local name="$1"
