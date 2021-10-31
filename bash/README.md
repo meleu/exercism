@@ -12,6 +12,7 @@ My **Golden Rules** for bash are:
 - Always have a `main` function for runnable scripts, called with `main "$@"`.
 - Always use `local when setting variables, unless there's a reason to use declare.
 - Never use \`backticks\`, use `$( ... )`.
+- Use [shellcheck](https://github.com/koalaman/shellcheck) to analyze your script.
 
 **References:**
 
@@ -20,6 +21,8 @@ My **Golden Rules** for bash are:
 
 
 ## Useful Concepts
+
+Concepts I usually use in my solutions:
 
 - Associative arrays:
   https://mywiki.wooledge.org/BashGuide/Arrays
@@ -33,4 +36,5 @@ My **Golden Rules** for bash are:
 - Arithmetic Evaluation: e.g.: `(( var += i * number))`
   https://mywiki.wooledge.org/BashGuide/CompoundCommands#Arithmetic_Evaluation
 
-
+- Safe ways to assign a command's output to an array:
+  https://github.com/koalaman/shellcheck/wiki/SC2207
