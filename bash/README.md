@@ -24,6 +24,9 @@ My **Golden Rules** for bash are:
 
 Concepts I usually use in my solutions:
 
+- Here-Documents & Here-Strings
+  https://mywiki.wooledge.org/BashGuide/InputAndOutput#Heredocs_And_Herestrings
+
 - Associative arrays:
   https://mywiki.wooledge.org/BashGuide/Arrays
 
