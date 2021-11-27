@@ -41,3 +41,6 @@ Concepts I usually use in my solutions:
 
 - Safe ways to assign a command's output to an array:
   https://github.com/koalaman/shellcheck/wiki/SC2207
+
+- Using the bc calculator:
+  https://www.tecmint.com/bc-command-examples/

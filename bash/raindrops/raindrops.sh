@@ -9,6 +9,10 @@
 #
 # - Control Operators (&& and ||):
 #   https://mywiki.wooledge.org/BashGuide/TestsAndConditionals#Control_Operators
+#
+# - `${var:-defaulValue}` means: 
+#   "give me the value of ${var}, but if it's empty, give me 'defaultValue'"
+#   https://mywiki.wooledge.org/BashGuide/Parameters#Parameter_Expansion
 
 main() {
   local number="$1"
@@ -21,15 +25,13 @@ main() {
   )
 
   # if not a number, abort
-  [[ ${number} =~ ^[0-9]+$ ]] || return 1
+  [[ ${number} =~ ^[[:digit:]]+$ ]] || return 1
 
   for factor in 3 5 7; do
     [[ "$(( number % factor ))" -eq 0 ]] && output+="${raindropName[$factor]}"
   done
 
-  [[ -z "${output}" ]] && output="${number}"
-
-  echo "${output}"
+  echo "${output:-${number}}"
 }
 
 main "$@"

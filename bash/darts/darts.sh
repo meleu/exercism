@@ -4,7 +4,8 @@
 #
 # Concepts:
 #
-# - Good practice: "Enigmatic" code should go in a function with a meaningful.
+# - Good practice: "Enigmatic" code should go in a
+#   function with a meaningful name.
 #
 # - Reduced equation of the circumference:
 #   https://www.sangakoo.com/en/unit/equation-of-the-circumference-i-reduced-equation
