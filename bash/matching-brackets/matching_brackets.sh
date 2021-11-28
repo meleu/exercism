@@ -1,24 +1,57 @@
 #!/usr/bin/env bash
 
-# The following comments should help you get started:
-# - Bash is flexible. You may use functions or write a "raw" script.
-#
-# - Complex code can be made easier to read by breaking it up
-#   into functions, however this is sometimes overkill in bash.
-#
-# - You can find links about good style and other resources
-#   for Bash in './README.md'. It came with this exercise.
-#
-#   Example:
-#   # other functions here
-#   # ...
-#   # ...
-#
-#   main () {
-#     # your main function code here
-#   }
-#
-#   # call main with all of the positional arguments
-#   main "$@"
-#
-# *** PLEASE REMOVE THESE COMMENTS BEFORE SUBMITTING YOUR SOLUTION ***
+
+lastChar() {
+  local string="$*"
+  echo "${string: -1}"
+}
+
+popChar() {
+  local string="$*"
+  local length="${#string}"
+
+  echo "${string:0:${length} - 1}"
+}
+
+matchingBrackets() {
+  local input="$1"
+  local i
+  local char
+  local stack
+
+  # go through all characters of ${input}
+  for (( i = 0; i < ${#input}; i++ )); do
+    char="${input:$i:1}"
+
+    # if an opening bracket is found, stack it
+    case "${char}" in
+      '['|'{'|'(')
+        stack+="${char}"
+        ;;
+      ']')
+        # check if it's correctly nested
+        [[ "$(lastChar "${stack}")" != '[' ]] && return 1
+
+        # closing correctly, then remove the opening bracket from the stack
+        stack="$(popChar "${stack}")"
+        ;;
+      '}')
+        [[ "$(lastChar "${stack}")" != '{' ]] && return 1
+        stack="$(popChar "${stack}")"
+        ;;
+      ')')
+        [[ "$(lastChar "${stack}")" != '(' ]] && return 1
+        stack="$(popChar "${stack}")"
+        ;;
+    esac
+  done
+
+  # an empty stack means that all brackets were "closed"
+  [[ -z "${stack}" ]]
+}
+
+main() {
+  matchingBrackets "$@" && echo true || echo false
+}
+
+main "$@"
