@@ -7,10 +7,7 @@ lastChar() {
 }
 
 popChar() {
-  local string="$*"
-  local length="${#string}"
-
-  echo "${string:0:${length} - 1}"
+  echo "${*%?}"
 }
 
 matchingBrackets() {
@@ -18,29 +15,27 @@ matchingBrackets() {
   local i
   local char
   local stack
+  declare -A bracketPairs=(
+    [']']='['
+    ['}']='{'
+    [')']='('
+  )
 
   # go through all characters of ${input}
   for (( i = 0; i < ${#input}; i++ )); do
     char="${input:$i:1}"
 
-    # if an opening bracket is found, stack it
     case "${char}" in
-      '['|'{'|'(')
+      '[' | '{' | '(')
+        # if an opening bracket is found, stack it
         stack+="${char}"
         ;;
-      ']')
+      ']' | '}' | ')')
         # check if it's correctly nested
-        [[ "$(lastChar "${stack}")" != '[' ]] && return 1
+        [[ "$(lastChar "${stack}")" != "${bracketPairs[$char]}" ]] && return 1
 
-        # closing correctly, then remove the opening bracket from the stack
-        stack="$(popChar "${stack}")"
-        ;;
-      '}')
-        [[ "$(lastChar "${stack}")" != '{' ]] && return 1
-        stack="$(popChar "${stack}")"
-        ;;
-      ')')
-        [[ "$(lastChar "${stack}")" != '(' ]] && return 1
+        # it's closing correctly, therefore remove the
+        # opening bracket from the stack
         stack="$(popChar "${stack}")"
         ;;
     esac
