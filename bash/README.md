@@ -10,7 +10,7 @@ My **Golden Rules** for bash are:
 - Always double quote variables. No naked `$` signs.
 - All code goes in a function. Even if it's just one function, `main`.
 - Always have a `main` function for runnable scripts, called with `main "$@"`.
-- Always use `local when setting variables, unless there's a reason to use declare.
+- Always use `local` when setting variables, unless there's a reason to use declare.
 - Never use \`backticks\`, use `$( ... )`.
 - Use [shellcheck](https://github.com/koalaman/shellcheck) to analyze your script.
 
