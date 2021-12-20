@@ -1,6 +1,7 @@
 .exercism/
 HELP.md
 bats-extra.bash
+/users
 
 # Created by https://www.toptal.com/developers/gitignore/api/linux,windows,macos,vim,visualstudiocode,node
 # Edit at https://www.toptal.com/developers/gitignore?templates=linux,windows,macos,vim,visualstudiocode,node
