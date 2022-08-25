@@ -4,14 +4,14 @@ class LogLineParser
   end
 
   def message
-    raise 'Please implement the LogLineParser#message method'
+    @line.gsub(/\[(ERROR|WARNING|INFO)\]:(.*)/, '\2').strip
   end
 
   def log_level
-    raise 'Please implement the LogLineParser#log_level method'
+    @line.gsub(/\[(ERROR|WARNING|INFO)\]:.*/, '\1').downcase.strip
   end
 
   def reformat
-    raise 'Please implement the LogLineParser#reformat method'
+    "#{self.message} (#{self.log_level})"
   end
 end
