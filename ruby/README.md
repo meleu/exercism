@@ -8,13 +8,13 @@ In this file I'm taking notes of the new concepts I learned with each exercise.
 
 ## Hello-World
 
-<./hello-world/>
+- [hello-world](hello-world)
 
 In the `GETTING_STARTED.md` file I saw this [Intro to TDD using minitest](http://tutorials.jumpstartlab.com/topics/testing/intro-to-tdd.html)
 
 ## Lasagna
 
-<./lasagna/>
+- [lasagna](lasagna)
 
 The `::` notation in `Lasagna::EXPECTED_MINUTES_IN_OVEN` means that 
 `EXPECTED_MINUTES_IN_OVEN` is a constant in the `Lasagna` class.
