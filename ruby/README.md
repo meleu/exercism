@@ -180,3 +180,65 @@ attr_reader :height, :pass_id
 ```
 
 
+## Acronym
+
+- [acronym](acronym)
+
+### Sometimes `.map` is better than `.each`
+
+The `map` method returns a new array with the results of running a block once for every element in enum.
+
+In this exercise I did this:
+```ruby
+words.split(/ |-/).map { |word| word[0] }.join.upcase
+```
+
+## Isogram
+
+- [isogram](isogram)
+
+### `String.count` counts the characters in a string
+
+<https://ruby-doc.org/core-3.1.2/String.html#method-i-count>
+
+The parameter is a set of characters to count.
+
+Examples:
+```ruby
+class Isogram
+  def self.isogram?(input_string)
+    word = input_string.downcase.gsub(/[^a-z]/, '')
+
+    word.chars do |char|
+      return false if word.count(char) > 1
+    end
+  end
+end
+```
+
+### `Array.uniq` works like the `uniq` command
+
+```ruby
+class Isogram
+  def self.isogram?(input_string)
+    input_chars = input_string.downcase.gsub(/[^a-z]/, '').chars
+    input_chars == input_chars.uniq
+  end
+end
+```
+
+## Pangram
+
+- [pangram](pangram)
+
+### `String.scan` is a more powerful way to `.split`
+
+<https://ruby-doc.org/core-3.1.2/String.html#method-i-scan>
+
+```ruby
+a = "cruel world"
+a.scan(/\w+/)        #=> ["cruel", "world"]
+a.scan(/.../)        #=> ["cru", "el ", "wor"]
+a.scan(/(...)/)      #=> [["cru"], ["el "], ["wor"]]
+a.scan(/(..)(..)/)   #=> [["cr", "ue"], ["l ", "wo"]]
+```
