@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# How much time are you spending on your lasagna?
 class Lasagna
   EXPECTED_MINUTES_IN_OVEN = 40
   MINUTES_PER_LAYER = 2
