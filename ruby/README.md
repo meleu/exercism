@@ -242,3 +242,21 @@ a.scan(/.../)        #=> ["cru", "el ", "wor"]
 a.scan(/(...)/)      #=> [["cru"], ["el "], ["wor"]]
 a.scan(/(..)(..)/)   #=> [["cr", "ue"], ["l ", "wo"]]
 ```
+
+## Phone Number
+
+- [phone-number](phone-number)
+
+### Short RegEx for digits: `\d` and `\D`
+
+```ruby
+# \d means any digit - equivalent to /[0-9]/
+"+1 (223) 456-7890".gsub(/\d/, 'X')
+#=> "+X (XXX) XXX-XXXX"
+
+# \D means any non-digit - equivalent to /[^0-9]/
+"+1 (223) 456-7890".gsub(/\D/, '')
+#=> "12234567890"
+```
+
+
