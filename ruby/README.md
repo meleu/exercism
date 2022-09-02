@@ -193,6 +193,8 @@ In this exercise I did this:
 words.split(/ |-/).map { |word| word[0] }.join.upcase
 ```
 
+See more: [Idiomatic Ruby](https://www.freecodecamp.org/news/idiomatic-ruby-writing-beautiful-code-6845c830c664)
+
 ## Isogram
 
 - [isogram](isogram)
@@ -260,3 +262,23 @@ a.scan(/(..)(..)/)   #=> [["cr", "ue"], ["l ", "wo"]]
 ```
 
 
+## Assembly Line
+
+- [assembly-line](assembly-line)
+
+
+### `case` with a range
+
+The case can have a range of values:
+```ruby
+case @speed
+when 1..4
+  1
+when 5..8
+  0.9
+when 9
+  0.8
+when 10
+  0.77
+end
+```
