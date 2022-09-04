@@ -344,3 +344,15 @@ end
 #=> [5, 4, 3, 2, 1]
 ```
 
+## Resistor Color
+
+- [resistor-color](resistor-color)
+
+### Create an array of strings with the "percent literal" `%w`
+
+- [official docs](https://ruby-doc.org/core-3.1.2/doc/syntax/literals_rdoc.html#label-25w+and+-25W-3A+String-Array+Literals)
+
+```ruby
+%w[black brown red orange yellow green blue violet grey white]
+#=> ["black", "brown", "red", "orange", "yellow", "green", "blue", "violet", "grey", "white"]
+```
