@@ -282,3 +282,48 @@ when 10
   0.77
 end
 ```
+
+## Bird Count
+
+- [bird-count](bird-count)
+
+### Array: Sum of all elements (integers only)
+
+- [doc](https://ruby-doc.org/core-3.1.2/Array.html#method-i-sum)
+
+```ruby
+[1, 2, 3].sum
+#=> 6
+
+[1, 2, 3, '10'].sum
+# (irb):11:in `+': String can't be coerced into Integer (TypeError)
+```
+
+### Array: count how many elements meet a condition
+
+- [doc](https://ruby-doc.org/core-3.1.2/Array.html#method-i-count)
+```ruby
+[1, 2, 3, 4, 5].count { |n| n.even? }
+#=> 2
+
+[1, 2, 3, 4, 5].count { |n| n.odd? }
+#=> 3
+```
+
+### Array: check if any element meets a condition
+
+- [doc](https://ruby-doc.org/core-3.1.2/Array.html#method-i-any-3F)
+
+```ruby
+[1, 3, 5].any? { |n| n.even? }
+#=> false
+
+[1, 3, 5].any? { |n| n.odd? }
+#=> true
+
+# syntatic sugar
+[1, 3, 5].any?(&:even?)
+#=> false
+[1, 3, 5].any?(&:odd?)
+#=> true
+```
