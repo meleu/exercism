@@ -327,3 +327,20 @@ end
 [1, 3, 5].any?(&:odd?)
 #=> true
 ```
+
+## High Scores
+
+- [high-scores](high-scores)
+
+
+### Array.max(n) returns the top n values
+
+```ruby
+[1, 5, 2, 4, 3].max
+#=> 5
+[1, 5, 2, 4, 3].max(3)
+#=> [5, 4, 3]
+[1, 5, 2, 4, 3].max(10) # it's ok if n > Array.size
+#=> [5, 4, 3, 2, 1]
+```
+
