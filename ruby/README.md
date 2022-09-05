@@ -356,3 +356,26 @@ end
 %w[black brown red orange yellow green blue violet grey white]
 #=> ["black", "brown", "red", "orange", "yellow", "green", "blue", "violet", "grey", "white"]
 ```
+
+
+## Simple Calculator
+
+- [simple-calculator](simple-calculator)
+
+### Capture an Exception
+
+```ruby
+begin
+  # ... code that can raise an exception...
+rescue ExceptionName
+  # ... code to run when getting an exception
+end
+```
+
+
+### Create a custom exception
+
+```ruby
+class MyCustomError < StandardError
+end
+```
