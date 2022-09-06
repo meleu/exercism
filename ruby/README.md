@@ -382,7 +382,7 @@ end
 
 ## Rotational Cipher
 
-- [rotational-cipher](rotational-cipher)j
+- [rotational-cipher](rotational-cipher)
 
 The smart approach I learned from looking other people's solutions involves:
 
