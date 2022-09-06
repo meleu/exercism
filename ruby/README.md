@@ -379,3 +379,55 @@ end
 class MyCustomError < StandardError
 end
 ```
+
+## Rotational Cipher
+
+- [rotational-cipher](rotational-cipher)j
+
+The smart approach I learned from looking other people's solutions involves:
+
+1. create an `alphabet` array with each letter of the alphabet
+2. create a new `encrypted_array` array with `alphabet.rotate(steps)`
+3. use `.join` to create two strings: `alphabet_string` and `encrypted_string`
+4. use `String.tr` to replace the `alphabet_string` with the `encrypted_string`
+
+### Using a Range to create an Array
+
+```ruby
+# n00b way
+alphabet = ('a'..'z').to_a
+
+# ninja way (I'm not fully aware about this notation)
+alphabet = [*'a'..'z']
+```
+
+
+### Using the `Array.rotate` method
+
+From the [docs](https://rubyapi.org/3.1/o/array#method-i-rotate)
+
+> Returns a new Array formed from `self` with elements rotated from one end
+> to the other.
+>
+> When no argument given, returns a new Array that is like `self`, except that
+> the first element has been rotated to the last position
+
+```ruby
+[:a, :b, :c, :d].rotate
+#=> [:b, :c, :d, :a]
+
+[:a, :b, :c, :d].rotate(2)
+#=> [:c, :d, :a, :b]
+```
+
+### Using the `String.tr` method
+
+- [docs](https://rubyapi.org/3.1/o/string#method-i-tr)
+
+It works like the traditional `tr` Unix command.
+
+```ruby
+"hello".tr('el', 'ip')      #=> "hippo"
+"hello".tr('aeiou', '*')    #=> "h*ll*"
+"hello".tr('aeiou', 'AA*')  #=> "hAll*"
+```
