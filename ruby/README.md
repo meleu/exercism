@@ -431,3 +431,15 @@ It works like the traditional `tr` Unix command.
 "hello".tr('aeiou', '*')    #=> "h*ll*"
 "hello".tr('aeiou', 'AA*')  #=> "hAll*"
 ```
+
+## ISBN Verifier
+
+- [isbn-verifier](isbn-verifier)
+
+### Use `Array.each_index` to iterate through the indexes
+
+```ruby
+digits.each_index do |i|
+  checksum += digits[i] * (10 - i)
+end
+```
