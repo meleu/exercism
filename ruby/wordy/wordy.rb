@@ -13,10 +13,10 @@ class WordProblem
     operations = sentence.scan(/plus|minus|multiplied|divided/)
 
     operations.each_with_index do |op, i|
-      @answer = if i.positive?
-                  @answer.send(OPERATIONS[op], numbers[i + 1])
-                else
+      @answer = if i.zero?
                   numbers[i].send(OPERATIONS[op], numbers[i + 1])
+                else
+                  @answer.send(OPERATIONS[op], numbers[i + 1])
                 end
     end
   end
