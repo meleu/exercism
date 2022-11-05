@@ -235,6 +235,9 @@ end
 
 ### `String.scan` is a more powerful way to `.split`
 
+- `.scan`: finds elements in a string (it accepts regex)
+- `.split`: splits the string in the specified separator (no regex allowed)
+
 <https://ruby-doc.org/core-3.1.2/String.html#method-i-scan>
 
 ```ruby
