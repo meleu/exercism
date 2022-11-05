@@ -5,7 +5,7 @@ class AssemblyLine
   def initialize(speed)
     @speed = speed
   end
-  
+
   def success_rate
     case @speed
     when 1..4

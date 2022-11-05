@@ -446,3 +446,16 @@ digits.each_index do |i|
   checksum += digits[i] * (10 - i)
 end
 ```
+
+## Wordy
+
+- [wordy](wordy)
+
+### Call a method from it's name in a String
+
+Use the `.send` method and pass the method name in a string as the first argument.
+
+In this exercise I used something like this:
+```ruby
+number1.send('+', number2)
+```
