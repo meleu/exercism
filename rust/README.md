@@ -69,4 +69,22 @@ Note that there are `f32` and `f64`.
 
 > When converting from a larger type to a smaller one (for instance `u64` to `u32`) you could lose data. Converting from a floating point to an integer **will** lose everything behind the decimal point, effectively rounding down.
 
-OK... Before progressing here I need to understand better how to convert types in Rust.
+In order to cast from floating-point to integer, just use the `as` keyword. Example:
+
+```rust
+let my_integer = floating_point_var as u8;
+let my_float = integer_var as f64;
+```
+
+In this challenge I've learned an interesting way to use `match`:
+
+```rust
+let success_rate = match speed {
+    1..=4 => 1.0,
+    5..=8 => 0.9,
+    9..=10 => 0.77,
+    _ => 0.0,
+};
+```
+
+I also learned the notation for ranges: `1..=4` - meaning "from 1 to 4, including the 4".
