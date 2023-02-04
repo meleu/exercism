@@ -20,7 +20,7 @@ pub fn hello() -> &'static str {
 }
 ```
 
-Just like in Ruby, there's no need to explicitly say `return`. But it **must** have no semicolon!
+Just like in Ruby, there's no need to explicitly say `return`. But it **MUST NOT** have the semicolon!
 
 
 ---
@@ -88,3 +88,31 @@ let success_rate = match speed {
 ```
 
 I also learned the notation for ranges: `1..=4` - meaning "from 1 to 4, including the 4".
+
+---
+
+## Health Statistics
+
+- [health-statistics](health-statistics)
+
+Things I learned:
+
+- Rust can act like a OO programming language.
+- `new()` is the constructor.
+- in a struct field, `name: name` can be replaced with `name`.
+
+Things I still don't know: when to use the "borrow" notation `&`. I hope to learn this concept of borrow/ownership soon.
+
+Also learned this notation for structs:
+```rust
+fn new(name: String, age: u32, weight: f32) -> Self {
+    User {
+        // no need to use
+        // name: name,
+        name,
+        age,
+        weight
+    }
+}
+```
+
