@@ -46,7 +46,8 @@ said, but it was useful to be fully conscious about that.)
 
 ### Optional Chaining
 
-Using the optional chaining operator `?.` we can prevent crashes when trying to access properties of an undefined object.
+Using the optional chaining operator `?.` we can prevent crashes when trying
+to access properties of an undefined object.
 
 ```js
 const obj = {
@@ -70,11 +71,105 @@ obj.residence?.street;
 
 ### Nullish Coalescing
 
-Useful when we want to provide a default value in case a variable is `null` or `undefined`.
+Useful when we want to provide a default value in case a variable is
+`null` or `undefined`.
 
 ```js
 let name; // <- undefined
 let person = name ?? 'World';
 console.log('Hello ' + person);
 // => Hello World
+```
+
+---
+
+
+## Lucky Numbers
+
+- [lucky-numbers](lucky-numbers)
+
+### Type Conversion
+
+Changing a type of a variable can be done explicitly (type **conversion**) and
+implicitly (type **coercion**).
+
+#### Boolean()
+
+```js
+Boolean(-1);
+// => true
+
+// the number zero is falsy
+Boolean(0);
+// => false
+
+Boolean(' ');
+// => true
+
+// empty string is falsy
+Boolean('');
+// => false
+```
+
+
+#### Number()
+
+```js
+Number('  -12.34  ');
+// => -12.34
+
+Number('1,2');
+// => NaN
+
+Number('');
+// => 0
+
+Number({ num: 123 });
+// => NaN
+
+// the value `1_000` is a valid way to write an actual number
+Number(1_000);
+// => 1000
+
+// but the string `'1_000'` is not converted into its equivalent number
+Number('1_000');
+// => NaN
+```
+
+
+#### String()
+
+```js
+String(12.34);
+// => '12.34'
+
+String(false);
+// => 'false'
+
+String(undefined);
+// => 'undefined'
+
+String(null);
+// => 'null'
+
+// note that in the example above, `null` was converted into `'null'`,
+// but in the array below, `null` was converted to an empty string.
+String([42, null, true, 'abc']);
+// => '42,,true,abc'
+
+// for objects, the conversion is not helpful. :(
+String({ key: 'value' });
+// => '[object Object]'
+```
+
+### Split a String into an array of chars
+
+```js
+// long version
+"my string".split('');
+// => [ 'm', 'y', ' ', 's', 't', 'r', 'i', 'n', 'g' ]
+
+// short/idiomatic version
+[..."my string"]
+// => [ 'm', 'y', ' ', 's', 't', 'r', 'i', 'n', 'g' ]
 ```
