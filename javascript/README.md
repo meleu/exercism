@@ -170,6 +170,9 @@ String({ key: 'value' });
 // => [ 'm', 'y', ' ', 's', 't', 'r', 'i', 'n', 'g' ]
 
 // short/idiomatic version
+// aka "Spread syntax"
 [..."my string"]
 // => [ 'm', 'y', ' ', 's', 't', 'r', 'i', 'n', 'g' ]
 ```
+
+Related doc: <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax>
