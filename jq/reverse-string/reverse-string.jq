@@ -1,0 +1,4 @@
+.value 
+| split("") 
+| reverse 
+| join("")
