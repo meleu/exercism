@@ -36,10 +36,10 @@
 # (no comma after the last filter)
 (
   [
-    .ingredients + ."optional ingredients" # concatenate arrays
-    | .[]                       # extract elements from the array
-    | select(has("substitute")) # select only elements with "substitute"
-    | {(.item): .substitute}    # create new objects
-  ]                             # put the objects in an array
-  | add                         # convert the array into an object
+    .ingredients + ."optional ingredients"
+    | .[]
+    | select(has("substitute"))
+    | {(.item): .substitute}
+  ]
+  | add
 )

@@ -33,6 +33,8 @@ I had to appeal to the [HINTS](shopping/HINTS.md)
 Applying those hints
 
 ```jq
+# NOTE: the comments below are messing the code.
+# They're kept here for educational purposes.
 [
   .ingredients + ."optional ingredients" # concatenate arrays
   | .[]                       # extract elements from the array
