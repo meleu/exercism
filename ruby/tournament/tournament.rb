@@ -1,71 +1,75 @@
-# https://exercism.org/tracks/ruby/exercises/tournament
-# NOTE:
-# This exercise would be better resolved with Arrays/Hashes fluence
-class TeamStatistics
-  # good explanation about 'attr_accessor' here:
-  # https://www.rubyguides.com/2018/11/attr_accessor/
-  attr_accessor :team_name, :matches_won, :matches_drawn, :matches_lost
-
-  def initialize(team_name)
-    @team_name = team_name
-    @matches_won = 0
-    @matches_lost = 0
-    @matches_drawn = 0
-  end
-
-  def matches_played
-    @matches_won + @matches_lost + @matches_drawn
-  end
-
-  def points
-    @matches_won * 3 + @matches_drawn
-  end
-end
-
 class Tournament
-  def self.tally(results = '')
-    # results_table = []
-    results_table = {}
+  @table = {}
 
-    results.each_line do |line|
-      team1, team2, result = line.split(';')
+  def self.tally(input)
+    results = input.split("\n")
+    results.each { |result| parse_input(result) }
+    print_table
+  end
 
-      results_table[team1] = TeamStatistics.new(team1) unless results_table.key?(team1)
-      results_table[team2] = TeamStatistics.new(team2) unless results_table.key?(team2)
+  def self.parse_input(input)
+    parsed_input = input.split(';')
+    team1 = parsed_input[0]
+    team2 = parsed_input[1]
+    result = parsed_input[2]
 
-      case result
-      when 'win'
-        results_table[team1].matches_won += 1
-        results_table[team2].matches_lost += 1
-      when 'loss'
-        results_table[team1].matches_lost += 1
-        results_table[team2].matches_won += 1
-      when 'draw'
-        results_table[team1].matches_drawn += 1
-        results_table[team2].matches_drawn += 1
-      end
+    @table[team1] = new_team(team1) if @table[team1].nil?
+    @table[team2] = new_team(team2) if @table[team2].nil?
+
+    case result
+    when 'win'
+      win(@table[team1], @table[team2])
+    when 'loss'
+      loss(@table[team1], @table[team2])
+    when 'draw'
+      draw(@table[team1], @table[team2])
     end
+  end
 
-    format(
-      '%-30s |%3s |%3s |%3s |%3s |%3s',
-      'Team',
-      'MP',
-      'W',
-      'D',
-      'L',
-      'P'
-    )
+  def self.new_team(team)
+    {
+      name: team,
+      matches_played: 0,
+      win: 0,
+      draw: 0,
+      loss: 0,
+      points: 0
+    }
+  end
 
-    # I need to sort the results_table: ordered by points, descending. In case
-    # of a tie, teams are ordered alphabetically
-    format(
-      '%-30s |%3s |%3s |%3s |%3s |%3s',
-      team1,
-      'MP',
-      'W',
-      'D',
-      'L',
-      'P'
-    )
+  def self.win(team1, team2)
+    team1[:matches_played] += 1
+    team1[:win] += 1
+    team1[:points] += 3
+
+    team2[:matches_played] += 1
+    team2[:loss] += 1
+  end
+
+  def self.loss(team1, team2)
+    team1[:matches_played] += 1
+    team1[:loss] += 1
+
+    team2[:matches_played] += 1
+    team2[:win] += 1
+    team2[:points] += 3
+  end
+
+  def self.draw(team1, team2)
+    team1[:matches_played] += 1
+    team1[:draw] += 1
+    team1[:points] += 1
+
+    team2[:matches_played] += 1
+    team2[:draw] += 1
+    team2[:points] += 1
+  end
+
+  def self.print_table
+    puts 'Team                           | MP |  W |  D |  L |  P'
+    @table.each do |team|
+      line = "#{team[:name]}\t| #{team[:matches_played]} | #{team[:win]} "
+      line += "| #{team[:draw]} | #{team[:loss]} | #{team[:points]}"
+    end
   end
 end

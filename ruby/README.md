@@ -72,7 +72,7 @@ Default value when variable is `nil`:
 
 ### Calling a method directly from the class
 
-In order to be able to call a method directly from the class (without 
+In order to be able to call a method directly from the class (without
 instantiating an object) you need to declare the method with `self`
 
 ```ruby
@@ -459,3 +459,29 @@ In this exercise I used something like this:
 ```ruby
 number1.send('+', number2)
 ```
+
+## Anagram
+
+- [anagram](anagram)
+
+My main takeaway from this exercise (got from another person's code) is:
+
+If you need to pick elements from an array, and store them in a new array,
+the condition should be in a block passed to the `#select` method.
+
+Example:
+```ruby
+original_array.select do |element|
+  condition_to_pick_element
+end
+```
+
+
+## Run-Length Encoding
+
+- [run-length-encoding](run-length-encoding)
+
+I've learned (by looking other people's solutions) that:
+
+- in a RegEx we can use the backreference (e.g.: `\1`) even in the "matching pattern"
+- `#gsub` accepts a block to define the text to be used as replacement.
