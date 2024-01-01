@@ -24,6 +24,7 @@ main() {
 
   # https://github.com/koalaman/shellcheck/wiki/SC2206
   IFS=' ' read -ra input <<< "${@//${regexFilter}/ }"
+  # input=("${@//${regexFilter}/ }")
 
   # ${var^} puts the first char of $var in upper case
   for string in "${input[@]^}"; do
