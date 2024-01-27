@@ -12,13 +12,13 @@ In this file I'm taking notes about the interesting things I'm learning on each 
 
 Difference between `in` and `of`:
 
-- "in" is used to iterate the keys of an object. 
-- "of" is used to iterate the values of an iterable collection such as an array, a string or a Map. 
+- "in" is used to iterate the keys of an object.
+- "of" is used to iterate the values of an iterable collection such as an array, a string or a Map.
 
 Example:
 
 ```js
-myArray = ['a', 'b', 'c'];
+myArray = ["a", "b", "c"];
 
 for (const key in myArray) console.log(key);
 // output: 0 1 2
@@ -37,7 +37,6 @@ In this exercise I learned that in a switch statement the comparison is done
 by checking for strict equality `===`. (ok, it looks kinda obvious after it's
 said, but it was useful to be fully conscious about that.)
 
-
 ---
 
 ## Amusement Park
@@ -52,8 +51,8 @@ to access properties of an undefined object.
 ```js
 const obj = {
   address: {
-    street: 'My Own Street',
-    city: 'New York',
+    street: "My Own Street",
+    city: "New York",
   },
 };
 
@@ -68,7 +67,6 @@ obj.residence?.street;
 // => undefined
 ```
 
-
 ### Nullish Coalescing
 
 Useful when we want to provide a default value in case a variable is
@@ -76,13 +74,12 @@ Useful when we want to provide a default value in case a variable is
 
 ```js
 let name; // <- undefined
-let person = name ?? 'World';
-console.log('Hello ' + person);
+let person = name ?? "World";
+console.log("Hello " + person);
 // => Hello World
 ```
 
 ---
-
 
 ## Lucky Numbers
 
@@ -103,25 +100,24 @@ Boolean(-1);
 Boolean(0);
 // => false
 
-Boolean(' ');
+Boolean(" ");
 // => true
 
 // empty string is falsy
-Boolean('');
+Boolean("");
 // => false
 ```
-
 
 #### Number()
 
 ```js
-Number('  -12.34  ');
+Number("  -12.34  ");
 // => -12.34
 
-Number('1,2');
+Number("1,2");
 // => NaN
 
-Number('');
+Number("");
 // => 0
 
 Number({ num: 123 });
@@ -132,10 +128,9 @@ Number(1_000);
 // => 1000
 
 // but the string `'1_000'` is not converted into its equivalent number
-Number('1_000');
+Number("1_000");
 // => NaN
 ```
-
 
 #### String()
 
@@ -154,11 +149,11 @@ String(null);
 
 // note that in the example above, `null` was converted into `'null'`,
 // but in the array below, `null` was converted to an empty string.
-String([42, null, true, 'abc']);
+String([42, null, true, "abc"]);
 // => '42,,true,abc'
 
 // for objects, the conversion is not helpful. :(
-String({ key: 'value' });
+String({ key: "value" });
 // => '[object Object]'
 ```
 
@@ -166,13 +161,27 @@ String({ key: 'value' });
 
 ```js
 // long version
-"my string".split('');
+"my string".split("");
 // => [ 'm', 'y', ' ', 's', 't', 'r', 'i', 'n', 'g' ]
 
 // short/idiomatic version
 // aka "Spread syntax"
-[..."my string"]
+[..."my string"];
 // => [ 'm', 'y', ' ', 's', 't', 'r', 'i', 'n', 'g' ]
 ```
 
 Related doc: <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax>
+
+## Lasagna Master
+
+- [lasagna-master](lasagna-master)
+
+### Iterate over object's properties
+
+Using "for let in":
+
+```js
+for (let ingredient in recipe) {
+  newRecipe[ingredient] = recipe[ingredient] * factor;
+}
+```
