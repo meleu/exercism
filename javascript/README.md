@@ -185,3 +185,36 @@ for (let ingredient in recipe) {
   newRecipe[ingredient] = recipe[ingredient] * factor;
 }
 ```
+
+## Elyses Destructured Enchantments
+
+- [elyses-destructured-enchantments](elyses-destructured-enchantments)
+
+### Rest Operator
+
+When `...` appears on the left-hand side of an assignment, those dots are known as the **rest operator**.
+
+Example:
+
+```js
+const [a, b, ...everythingElse] = [0, 1, 1, 2, 3, 4, 5];
+
+everythingElse;
+// => [1, 2, 3, 4, 5]
+```
+
+**Note**: the "rest element" cannot have a trailing comma.
+
+### Spread Operator
+
+When `...` appears on right-hand side of an assignemnt, it's known as the **spread operator**.
+
+Example:
+
+```js
+const oneToFive = [1, 2, 3, 4, 5];
+const oneToTen = [...oneToFive, 6, 7, 8, 9, 10];
+
+oneToTen;
+// => [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+```
