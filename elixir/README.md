@@ -27,6 +27,13 @@ Similar to Ruby.
 - variables: `snake_case`
 - functions: `snake_case`
 
+```elixir
+# convention: when a function returns a boolean, end it with `?`
+def valid_name?(name) do
+  # ...
+end
+```
+
 ## modules
 
 All named functions must be defined in a module.
