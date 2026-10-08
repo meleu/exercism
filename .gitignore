@@ -3,6 +3,7 @@ HELP.md
 LICENSE
 bats-extra.bash
 /users
+test-framework
 
 **/.yarn/
 
